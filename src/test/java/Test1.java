@@ -23,13 +23,18 @@ public class Test1 {
 
 
         int i;
+        int a;
 
-        List<WebElement> menu = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul.docs li#app- a')");
+        List<WebElement> menu1 = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul li#app-')");
 
-        for (i=0; i<menu.size(); i++) {
-            menu.get(i).click();
-            List<WebElement> submenu = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul.docs li')");
-            submenu.get(i).click();
+        for (i=0; i<menu1.size(); i++) {
+            List<WebElement> menu2 = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul li#app-')");
+            menu2.get(i).click();
+            List<WebElement> submenu1 = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul.docs li')");
+            for (a = 0; a < submenu1.size(); a++) {
+                List<WebElement> submenu2 = (List<WebElement>) ((JavascriptExecutor) driver).executeScript("return document.querySelectorAll('ul.docs li')");
+                submenu2.get(a).click();
+            }
         }
     }
 
