@@ -26,6 +26,7 @@ public class Test9 {
         for (int i=5; i<10; i++) {
             driver.findElement(By.xpath("//*[@id='content']/form/table/tbody/tr[" + i + "]/td[3]/a")).click();
             System.out.println(driver.manage().logs().getAvailableLogTypes());
+            driver.manage().logs().get("browser").forEach(l -> System.out.println(l));
             driver.findElement(By.name("cancel")).click();
         }
     }
